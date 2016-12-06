@@ -44,9 +44,19 @@ class App extends React.Component {
 class Input extends React.Component {
   render() {
     return (
-    <div>
-      <input type="number" onChange={(e) => this.props.handlePeopleChange(e)} placeholder="people"/>
-            <input type="number" onChange={(e) => this.props.handleSliceChange(e)} placeholder="slices"/>
+      <div className="panel-body">
+        <form>
+          <div className="form-group row">
+            <div className="col-sm-12">
+              <input type="number" onChange={(e) => this.props.handlePeopleChange(e)} placeholder="Number of People" className="form-control"/>
+            </div>
+          </div>
+          <div className="form-group row">
+            <div className="col-sm-12">
+              <input type="number" onChange={(e) => this.props.handleSliceChange(e)} placeholder="Number of Slices per Person" className="form-control"/>
+            </div>
+          </div>
+        </form>
       </div>
     );
 
@@ -56,8 +66,11 @@ class Input extends React.Component {
 class Result extends React.Component {
   render() {
     return (
-
-      <p>Result: {this.props.solution} for a total of {this.props.slices} slices leaving {this.props.slices - this.props.result} left over or {(this.props.slices / this.props.people).toFixed(2)} slices each</p>);
+      <p>
+        Result: <strong>{this.props.solution} </strong>
+        for a total of <strong>{this.props.slices}</strong> slices,
+        leaving <strong>{this.props.slices - this.props.result}</strong> left over or
+        <strong> {(this.props.slices / this.props.people).toFixed(2)}</strong> slices each</p>);
 
   }
 }
