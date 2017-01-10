@@ -3,33 +3,12 @@ import Result from './Result';
 import React from 'react';
 
 export default class App extends React.Component {
-	constructor() {
-    super();
-    this.state = {
-    	result: 'No Pizza',
-      people: 0,
-    	slices: 0
-    };
-  }
-  handlePeopleChange(e) {
-  console.log(this.state);
-  	this.change(e.target.value, this.state.slices);
-  }
-  handleSliceChange(e) {
-  	this.change(this.state.people, e.target.value);
-  }
-  change(people, slices){
-  	this.setState({
-    	people: people,
-      slices: slices,
-    	result: people * slices
-    });
-  }
   render() {
   	let solution = "No Pizza",
-    		slicesAvailible = 0;
+    		slicesAvailible = 0,
+				result = this.props.store.people * this.props.store.slices;
   	for (let key of this.props.options.keys()) {
-    	if(key >= this.state.result){
+    	if(key >= result){
       	solution = this.props.options.get(key);
         slicesAvailible = key;
         break;
@@ -37,8 +16,8 @@ export default class App extends React.Component {
 		}
     return (
       <div>
-      <Input handlePeopleChange={(e) => this.handlePeopleChange(e)} handleSliceChange={(e) => this.handleSliceChange(e)}/>
-            <Result solution={solution} result={this.state.result} slices={slicesAvailible} people={this.state.people} />
+      <Input handlePeopleChange={this.props.onPeopleChange} handleSlicesChange={this.props.onSlicesChange}/>
+            <Result solution={solution} result={result} slices={slicesAvailible} people={this.props.store.people} />
 
     </div>
     );
