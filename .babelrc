@@ -1,1 +1,3 @@
-{ "presets": ["env", "react"] }
+{
+  "presets": ["airbnb", "es2015", "stage-0"]
+}
