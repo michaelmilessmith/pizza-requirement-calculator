@@ -17,7 +17,7 @@ const store = createStore(pizzaCalculator, window.__REDUX_DEVTOOLS_EXTENSION__ &
 const render = () => {
   ReactDOM.render(
     <App
-      store={store.getState()}
+      {...store.getState()}
       options={options}
       onPeopleChange={(value) =>
         store.dispatch({
