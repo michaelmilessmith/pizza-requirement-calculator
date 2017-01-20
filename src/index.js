@@ -13,7 +13,7 @@ const pizzaCalculator = (state = {people: 0, slices: 0 }, action) => {
     default: return state;
   }
 }
-const store = createStore(pizzaCalculator);
+const store = createStore(pizzaCalculator, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const render = () => {
   ReactDOM.render(
     <App
