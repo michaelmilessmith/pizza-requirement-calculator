@@ -1,6 +1,9 @@
 const mediumSlices = 8
 const largeSlices = 10
 
+const calculateSlices = ({ medium, large }) => {
+  return medium * mediumSlices + large * largeSlices
+}
 const pizzaCalculator = ({ slicesNeeded, bogof }) => {
   const toChange = bogof ? 2 : 1
   let total = 0
@@ -15,9 +18,9 @@ const pizzaCalculator = ({ slicesNeeded, bogof }) => {
       pizzas.medium -= toChange
       pizzas.large += toChange
     }
-    total = pizzas.medium * mediumSlices + pizzas.large * largeSlices
+    total = calculateSlices(pizzas)
   }
-  return pizzas
+  return { pizzas, total }
 }
 
 export default pizzaCalculator

@@ -7,7 +7,7 @@ export default class App extends React.Component {
     return (
       <div>
       	<Input handlePeopleChange={this.props.onPeopleChange} handleSlicesChange={this.props.onSlicesChange}/>
-        <Result options={this.props.options} people={this.props.people} slices={this.props.slices} />
+        <Result people={this.props.people} slices={this.props.slices} />
     </div>
     );
   }

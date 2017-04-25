@@ -19,9 +19,9 @@ describe('<Result/>', () => {
       slices={7}
       />);
     const {solution, slicesAvailible} = wrapper.instance()._calculateSolution(42, options);
-    expect(solution).to.equal("Six Mediums");
+    expect(solution).to.equal("6 Mediums");
     expect(slicesAvailible).to.equal(48);
-    expect(wrapper.find('#pizzas-required').text()).to.equal("Six Mediums");
+    expect(wrapper.find('#pizzas-required').text()).to.equal("6 Mediums");
     expect(wrapper.find('#total-slices').text()).to.equal("48 slices");
     expect(wrapper.find('#slices-left-over').text()).to.equal("6 left over");
     expect(wrapper.find('#slices-each').text()).to.equal("8.00 slices each");

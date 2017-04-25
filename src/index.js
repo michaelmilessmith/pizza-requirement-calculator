@@ -2,7 +2,6 @@ import App from './Components/App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux'
-import { options } from './pizzaOptions'
 
 const pizzaCalculator = (state = {people: 0, slices: 0 }, action) => {
   switch (action.type) {
@@ -18,7 +17,6 @@ const render = () => {
   ReactDOM.render(
     <App
       {...store.getState()}
-      options={options}
       onPeopleChange={(value) =>
         store.dispatch({
         type: 'UPDATE_PEOPLE',
