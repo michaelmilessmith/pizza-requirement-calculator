@@ -7,12 +7,12 @@ export default class Input extends React.Component {
         <form>
           <div className="form-group row">
             <div className="col-sm-12">
-              <input type="number" onChange={this.props.handlePeopleChange} placeholder="Number of People" className="form-control"/>
+              <input id="number-of-people" type="number" onChange={(e) => this.props.handlePeopleChange(e.target.value)} placeholder="Number of People" className="form-control"/>
             </div>
           </div>
           <div className="form-group row">
             <div className="col-sm-12">
-              <input type="number" onChange={this.props.handleSliceChange} placeholder="Number of Slices per Person" className="form-control"/>
+              <input id="number-of-slices" type="number" onChange={(e) => this.props.handleSlicesChange(e.target.value)} placeholder="Number of Slices per Person" className="form-control"/>
             </div>
           </div>
         </form>
