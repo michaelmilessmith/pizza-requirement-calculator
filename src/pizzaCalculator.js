@@ -1,26 +1,23 @@
-const medium = 8
-const large = 10
+const mediumSlices = 8
+const largeSlices = 10
 
-
-const pizzaCalculator = ({ numberOfSlices, people, bogof }) => {
-  const minimum =  numberOfSlices * people
-  const toAdd = bogof ? 2 : 1
+const pizzaCalculator = ({ slicesNeeded, bogof }) => {
+  const toChange = bogof ? 2 : 1
   let total = 0
-  const pizzas = [0,0]
+  const pizzas = { large: 0, medium: 0 }
   let numberOfPizzas = 0
-  console.log({minimum,total})
-  while(minimum > total){
-    if(pizzas[1] === numberOfPizzas) {
-      numberOfPizzas += toAdd
-      pizzas[0] = numberOfPizzas
-      pizzas[1] = 0
+  while(slicesNeeded > total){
+    if(pizzas.large === numberOfPizzas) {
+      numberOfPizzas += toChange
+      pizzas.medium = numberOfPizzas
+      pizzas.large = 0
     } else {
-      pizzas[0] -= toAdd
-      pizzas[1] += toAdd
+      pizzas.medium -= toChange
+      pizzas.large += toChange
     }
-    total = pizzas[0] * medium + pizzas[1] * large
+    total = pizzas.medium * mediumSlices + pizzas.large * largeSlices
   }
-  return { large: pizzas[1], medium: pizzas[0] }
+  return pizzas
 }
 
 export default pizzaCalculator
