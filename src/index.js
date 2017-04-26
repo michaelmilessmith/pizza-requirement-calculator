@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux'
 
-const pizzaCalculator = (state = {people: 0, slices: 0, bogof: false }, action) => {
+const pizzaCalculator = (state = {people: 0, slices: 0, bogof: true }, action) => {
   switch (action.type) {
     case 'UPDATE_PEOPLE':
       return Object.assign({}, state, { people: action.value });

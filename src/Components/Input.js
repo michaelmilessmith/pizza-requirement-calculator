@@ -18,7 +18,7 @@ export default class Input extends React.Component {
           <div>
             <div className="text-center">
                 <label for="bogof" className="checkbox-inline">
-                  <input id="bogof" type="checkbox" onChange={(e) => this.props.handleBogofChange(e.target.value)}/>
+                  <input id="bogof" type="checkbox" checked={this.props.bogof} onChange={(e) => this.props.handleBogofChange(e.target.value)}/>
                   Buy One Get One Free?
                 </label>
             </div>
