@@ -3,12 +3,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux'
 
-const pizzaCalculator = (state = {people: 0, slices: 0 }, action) => {
+const pizzaCalculator = (state = {people: 0, slices: 0, bogof: false }, action) => {
   switch (action.type) {
     case 'UPDATE_PEOPLE':
-      return {people: action.value, slices: state.slices };
+      return Object.assign({}, state, { people: action.value });
     case 'UPDATE_SLICES':
-      return {people: state.people, slices: action.value };
+      return Object.assign({}, state, { slices: action.value });
+    case 'TOOGLE_BOGOF':
+      return Object.assign({}, state, { bogof: !state.bogof });
     default: return state;
   }
 }
@@ -26,7 +28,12 @@ const render = () => {
         store.dispatch({
         type: 'UPDATE_SLICES',
         value: value
-      })}/>,
+      })}
+      onBogofChange={(value) =>
+        store.dispatch({
+        type: 'TOOGLE_BOGOF'
+      })}
+    />,
     document.getElementById('container')
   );
 };

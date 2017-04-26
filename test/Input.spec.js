@@ -22,4 +22,10 @@ describe('<Input/>', () => {
     wrapper.find('#number-of-slices').first().simulate('change', {target: {value: '7'}});
     expect(onChange).to.have.property('callCount', 1);
   });
+  it('raises an event when the bogof value changes', () => {
+    const onChange = sinon.spy();
+    const wrapper = shallow(<Input handleBogofChange={onChange}/>);
+    wrapper.find('#bogof').first().simulate('change', {target: {value: 'true'}});
+    expect(onChange).to.have.property('callCount', 1);
+  });
 });

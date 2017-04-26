@@ -6,8 +6,16 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-      	<Input handlePeopleChange={this.props.onPeopleChange} handleSlicesChange={this.props.onSlicesChange}/>
-        <Result people={this.props.people} slices={this.props.slices} />
+      	<Input
+          handlePeopleChange={this.props.onPeopleChange}
+          handleSlicesChange={this.props.onSlicesChange}
+          handleBogofChange={this.props.onBogofChange}
+        />
+        <Result
+          people={this.props.people}
+          slices={this.props.slices}
+          pizzaOptions={{ bogof: this.props.bogof}}
+        />
     </div>
     );
   }

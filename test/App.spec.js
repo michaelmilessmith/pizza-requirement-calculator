@@ -4,7 +4,6 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import App from '../src/Components/App';
-import { options } from '../src/pizzaOptions';
 
 const props = {
     store: {
