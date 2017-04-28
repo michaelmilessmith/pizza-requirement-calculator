@@ -1,8 +1,18 @@
+// @flow
+
 import React from 'react'
 import pizzaCalculator from '../pizzaCalculator'
 
+type calculateSolutionArgs = {
+  slicesNeeded: number,
+  bogof: boolean
+}
+
 export default class Result extends React.Component {
-  _calculateSolution(slicesNeeded, options = {}) {
+  _calculateSolution(
+    slicesNeeded: number,
+    options: { bogof: boolean } = { bogof: false }
+  ) {
     const { pizzas, total } = pizzaCalculator({
       slicesNeeded,
       bogof: options.bogof

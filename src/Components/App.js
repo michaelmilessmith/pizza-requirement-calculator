@@ -1,3 +1,5 @@
+// @flow
+
 import Input from './Input'
 import Result from './Result'
 import React from 'react'

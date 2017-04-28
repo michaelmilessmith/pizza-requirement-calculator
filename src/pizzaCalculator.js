@@ -1,10 +1,18 @@
+// @flow
+
 const mediumSlices = 8
 const largeSlices = 10
 
 const calculateSlices = ({ medium, large }) => {
   return medium * mediumSlices + large * largeSlices
 }
-const pizzaCalculator = ({ slicesNeeded, bogof }) => {
+
+type pizzaCalculatorArgs = {
+  slicesNeeded: number,
+  bogof: boolean
+}
+
+const pizzaCalculator = ({ slicesNeeded, bogof } : pizzaCalculatorArgs) => {
   const toChange = bogof ? 2 : 1
   let total = 0
   const pizzas = { large: 0, medium: 0 }
