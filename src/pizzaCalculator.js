@@ -9,8 +9,8 @@ const pizzaCalculator = ({ slicesNeeded, bogof }) => {
   let total = 0
   const pizzas = { large: 0, medium: 0 }
   let numberOfPizzas = 0
-  while(slicesNeeded > total){
-    if(pizzas.large === numberOfPizzas) {
+  while (slicesNeeded > total) {
+    if (pizzas.large === numberOfPizzas) {
       numberOfPizzas += toChange
       pizzas.medium = numberOfPizzas
       pizzas.large = 0

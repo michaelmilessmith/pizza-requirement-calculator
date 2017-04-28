@@ -1,12 +1,12 @@
-import Input from './Input';
-import Result from './Result';
-import React from 'react';
+import Input from './Input'
+import Result from './Result'
+import React from 'react'
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-      	<Input
+        <Input
           handlePeopleChange={this.props.onPeopleChange}
           handleSlicesChange={this.props.onSlicesChange}
           handleBogofChange={this.props.onBogofChange}
@@ -15,9 +15,9 @@ export default class App extends React.Component {
         <Result
           people={this.props.people}
           slices={this.props.slices}
-          pizzaOptions={{ bogof: this.props.bogof}}
+          pizzaOptions={{ bogof: this.props.bogof }}
         />
-    </div>
-    );
+      </div>
+    )
   }
 }
