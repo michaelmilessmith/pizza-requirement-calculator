@@ -1,10 +1,11 @@
 // @flow
 
-const defaultState = { people: 0, slices: 0, bogof: true }
+const defaultState = { people: 0, slices: 0, bogof: true, cost: 0.00 }
 type State = {
   people: number,
   slices: number,
-  bogof: boolean
+  bogof: boolean,
+  cost: number
 }
 
 type Action = {
@@ -20,6 +21,8 @@ const reducer = (state: State = defaultState, action: Action) => {
       return Object.assign({}, state, { slices: action.payload.value })
     case 'TOOGLE_BOGOF':
       return Object.assign({}, state, { bogof: !state.bogof })
+    case 'UPDATE_COST':
+      return Object.assign({}, state, { cost: action.payload.value })
     default:
       return state
   }

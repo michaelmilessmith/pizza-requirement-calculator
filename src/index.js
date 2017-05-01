@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 
 import reducer from './reducer'
-import { updatePeople, updateSlices, toogleBogof } from './actions'
+import { updatePeople, updateSlices, toogleBogof, updateCost } from './actions'
 
 const store = createStore(
   reducer,
@@ -20,7 +20,7 @@ const render = () => {
       onPeopleChange={value => store.dispatch(updatePeople(value))}
       onSlicesChange={value => store.dispatch(updateSlices(value))}
       onBogofChange={value => store.dispatch(toogleBogof())}
-      onCostChange={value => store.dispatch()}
+      onCostChange={value => store.dispatch(updateCost(value))}
     />,
     document.getElementById('container')
   )
