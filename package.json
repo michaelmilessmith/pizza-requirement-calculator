@@ -7,9 +7,9 @@
     "test": "mocha -w test/helpers/browser.js test/*.spec.js",
     "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "build": "webpack",
-    "precommit": "lint-staged",
+    "precommit": "flow",
     "flow": "flow",
-    "precommit": "flow"
+    "jest": "jest"
   },
   "lint-staged": {
     "*.js": [
@@ -56,6 +56,7 @@
     "file-loader": "^0.9.0",
     "flow-bin": "^0.45.0",
     "husky": "^0.13.3",
+    "jest": "^19.0.2",
     "jsdom": "^9.9.1",
     "lint-staged": "^3.4.0",
     "mocha": "^3.2.0",
