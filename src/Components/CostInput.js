@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export default class Input extends React.Component {
+export default class CostInput extends React.Component {
   render() {
     return (
       <div className="panel-body">

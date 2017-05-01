@@ -20,6 +20,7 @@ const render = () => {
       onPeopleChange={value => store.dispatch(updatePeople(value))}
       onSlicesChange={value => store.dispatch(updateSlices(value))}
       onBogofChange={value => store.dispatch(toogleBogof())}
+      onCostChange={value => store.dispatch()}
     />,
     document.getElementById('container')
   )

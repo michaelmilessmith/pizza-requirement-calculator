@@ -1,4 +1,4 @@
-import { updatePeople, updateSlices, toogleBogof } from './actions'
+import { updatePeople, updateSlices, toogleBogof, updateCost } from './actions'
 
 describe('actions', () => {
   describe('updatePeople', () => {
@@ -19,6 +19,13 @@ describe('actions', () => {
     it('returns an action to toogle bogof', () => {
       const action = toogleBogof()
       expect(action.type).toBe('TOOGLE_BOGOF')
+    })
+  })
+  describe('updateCost', () => {
+    it('returns an action to update cost', () => {
+      const action = updateCost(36.54)
+      expect(action.type).toBe('UPDATE_COST')
+      expect(action.payload.value).toBe(36.54)
     })
   })
 })

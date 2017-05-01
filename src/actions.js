@@ -18,4 +18,11 @@ const toogleBogof = () => ({
   type: 'TOOGLE_BOGOF'
 })
 
-export { updatePeople, updateSlices, toogleBogof }
+const updateCost = (value: number) => ({
+  type: 'UPDATE_COST',
+  payload: {
+    value
+  }
+})
+
+export { updatePeople, updateSlices, toogleBogof, updateCost }

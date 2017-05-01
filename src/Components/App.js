@@ -1,8 +1,10 @@
 // @flow
 
+import React from 'react'
+
 import Input from './Input'
 import Result from './Result'
-import React from 'react'
+import CostInput from './CostInput'
 
 export default class App extends React.Component {
   render() {
@@ -19,6 +21,7 @@ export default class App extends React.Component {
           slices={this.props.slices}
           pizzaOptions={{ bogof: this.props.bogof }}
         />
+        <CostInput handleCostChange={this.props.onCostChange} />
       </div>
     )
   }
