@@ -4,7 +4,7 @@
   "description": "A react web app to calculate how many pizzas are needed",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -w test/helpers/browser.js test/*.spec.js",
+    "test": "jest",
     "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "build": "webpack",
     "precommit": "lint-staged && flow",
@@ -49,7 +49,6 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.16.0",
     "babel-register": "^6.18.0",
-    "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.14",
     "enzyme": "^2.7.0",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -59,10 +58,8 @@
     "jest": "^19.0.2",
     "jsdom": "^9.9.1",
     "lint-staged": "^3.4.0",
-    "mocha": "^3.2.0",
     "prettier": "^1.2.2",
-    "react-addons-test-utils": "^15.4.2",
-    "sinon": "^1.17.7",
+    "react-test-renderer": "^15.5.4",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
