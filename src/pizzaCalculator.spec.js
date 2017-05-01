@@ -1,8 +1,6 @@
-import pizzaCalculator from '../src/pizzaCalculator'
+import pizzaCalculator from './pizzaCalculator'
 
-const helper = (pizzaArgs) => (
-  pizzaCalculator(pizzaArgs).pizzas
-)
+const helper = pizzaArgs => pizzaCalculator(pizzaArgs).pizzas
 describe('Pizza Calculator', () => {
   it('Should return an object representing the amount of Pizza needed', () => {
     expect(helper({ slicesNeeded: 0 })).toEqual({
@@ -23,17 +21,21 @@ describe('Pizza Calculator', () => {
     })
   })
   it('Should return an object representing the amount of Pizza needed when bogof offer is on', () => {
-    expect(
-      helper({ slicesNeeded: 0, bogof: true })
-    ).toEqual({ large: 0, medium: 0 })
-    expect(
-      helper({ slicesNeeded: 12, bogof: true })
-    ).toEqual({ large: 0, medium: 2 })
-    expect(
-      helper({ slicesNeeded: 42, bogof: true })
-    ).toEqual({ large: 0, medium: 6 })
-    expect(
-      helper({ slicesNeeded: 90, bogof: true })
-    ).toEqual({ large: 6, medium: 4 })
+    expect(helper({ slicesNeeded: 0, bogof: true })).toEqual({
+      large: 0,
+      medium: 0
+    })
+    expect(helper({ slicesNeeded: 12, bogof: true })).toEqual({
+      large: 0,
+      medium: 2
+    })
+    expect(helper({ slicesNeeded: 42, bogof: true })).toEqual({
+      large: 0,
+      medium: 6
+    })
+    expect(helper({ slicesNeeded: 90, bogof: true })).toEqual({
+      large: 6,
+      medium: 4
+    })
   })
 })

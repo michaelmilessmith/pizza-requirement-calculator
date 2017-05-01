@@ -1,11 +1,13 @@
 // @flow
 
 const defaultState = { people: 0, slices: 0, bogof: true }
+type stateArgs = {
+  people: number,
+  slices: number,
+  bogof: boolean
+}
 
-const reducer = (
-  state = defaultState,
-  action
-) => {
+const reducer = (state: stateArgs = defaultState, action: Object) => {
   switch (action.type) {
     case 'UPDATE_PEOPLE':
       return Object.assign({}, state, { people: action.value })
@@ -17,3 +19,5 @@ const reducer = (
       return state
   }
 }
+
+export default reducer
