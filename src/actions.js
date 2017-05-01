@@ -1,11 +1,13 @@
-const updatePeople = value => ({
+// @flow
+
+const updatePeople = (value: number) => ({
   type: 'UPDATE_PEOPLE',
   payload: {
     value
   }
 })
 
-const updateSlices = value => ({
+const updateSlices = (value: number) => ({
   type: 'UPDATE_SLICES',
   payload: {
     value
