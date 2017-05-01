@@ -7,12 +7,12 @@ const calculateSlices = ({ medium, large }) => {
   return medium * mediumSlices + large * largeSlices
 }
 
-type pizzaCalculatorArgs = {
+type PizzaOptions = {
   slicesNeeded: number,
   bogof: boolean
 }
 
-const pizzaCalculator = ({ slicesNeeded, bogof } : pizzaCalculatorArgs) => {
+const pizzaCalculator = ({ slicesNeeded, bogof }: PizzaOptions) => {
   const toChange = bogof ? 2 : 1
   let total = 0
   const pizzas = { large: 0, medium: 0 }

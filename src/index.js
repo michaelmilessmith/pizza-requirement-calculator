@@ -19,12 +19,16 @@ const render = () => {
       onPeopleChange={value =>
         store.dispatch({
           type: 'UPDATE_PEOPLE',
-          value: value
+          payload: {
+            value
+          }
         })}
       onSlicesChange={value =>
         store.dispatch({
           type: 'UPDATE_SLICES',
-          value: value
+          payload: {
+            value
+          }
         })}
       onBogofChange={value =>
         store.dispatch({
