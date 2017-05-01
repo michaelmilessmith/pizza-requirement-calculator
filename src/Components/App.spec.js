@@ -10,10 +10,11 @@ const props = {
   }
 }
 describe('<App/>', () => {
-  it('renders a <Result/>, <Input/> and <CostInput/> component', () => {
+  it('renders a <Result/>, <Input/>, <CostInput/> and <CostResult/>', () => {
     const wrapper = shallow(<App {...props} />)
     expect(wrapper.find('Result').length).toBe(1)
     expect(wrapper.find('Input').length).toBe(1)
     expect(wrapper.find('CostInput').length).toBe(1)
+    expect(wrapper.find('CostResult').length).toBe(1)
   })
 })
