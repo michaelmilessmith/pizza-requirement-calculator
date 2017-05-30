@@ -6,9 +6,15 @@ import Input from './Input'
 import Result from './Result'
 import CostInput from './CostInput'
 import CostResult from './CostResult'
+import pizzaCalculator from '../pizzaCalculator'
 
 export default class App extends React.Component {
   render() {
+    const slicesNeeded = this.props.people * this.props.slices
+    const { pizzas, total } = pizzaCalculator({
+      slicesNeeded,
+      bogof: this.props.bogof
+    })
     return (
       <div>
         <Input
@@ -20,10 +26,15 @@ export default class App extends React.Component {
         <Result
           people={this.props.people}
           slices={this.props.slices}
-          pizzaOptions={{ bogof: this.props.bogof }}
+          pizzas={pizzas}
+          total={total}
         />
         <CostInput handleCostChange={this.props.onCostChange} />
-        <CostResult cost={this.props.cost} people={this.props.people} />
+        <CostResult
+          cost={this.props.cost}
+          people={this.props.people}
+          slices={total}
+        />
       </div>
     )
   }

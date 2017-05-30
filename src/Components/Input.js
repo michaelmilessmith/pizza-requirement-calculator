@@ -31,7 +31,7 @@ export default class Input extends React.Component {
           </div>
           <div>
             <div className="text-center">
-              <label for="bogof" className="checkbox-inline">
+              <label htmlFor="bogof" className="checkbox-inline">
                 <input
                   id="bogof"
                   type="checkbox"

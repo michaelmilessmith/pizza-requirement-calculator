@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react'
-import pizzaCalculator from '../pizzaCalculator'
 
 type calculateSolutionArgs = {
   slicesNeeded: number,
@@ -9,14 +8,7 @@ type calculateSolutionArgs = {
 }
 
 export default class Result extends React.Component {
-  _calculateSolution(
-    slicesNeeded: number,
-    options: { bogof: boolean } = { bogof: false }
-  ) {
-    const { pizzas, total } = pizzaCalculator({
-      slicesNeeded,
-      bogof: options.bogof
-    })
+  _calculateSolution(pizzas: Object, total: number) {
     const result = []
     if (pizzas.large) {
       result.push(`${pizzas.large} Larges`)
@@ -30,12 +22,9 @@ export default class Result extends React.Component {
     return { solution, slicesAvailible: total }
   }
   render() {
-    const { people, slices, pizzaOptions } = this.props
+    const { people, slices, pizzas, total } = this.props
     const slicesNeeded = people * slices
-    const { solution, slicesAvailible } = this._calculateSolution(
-      slicesNeeded,
-      pizzaOptions
-    )
+    const { solution, slicesAvailible } = this._calculateSolution(pizzas, total)
     return (
       <div id="result" className="text-center">
         <p id="pizzas-required">
