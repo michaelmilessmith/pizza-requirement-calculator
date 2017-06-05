@@ -1,12 +1,18 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
+import pizzaCalculator from '../pizzaCalculator'
 
-export default class CostResult extends React.Component {
+class CostResult extends React.Component {
   render() {
     const { people, cost, slices } = this.props
+    const { pizzas, total } = pizzaCalculator({
+      slicesNeeded: people * slices,
+      bogof: this.props.bogof
+    })
     const costPerPerson = (cost / people).toFixed(2)
-    const costPerSlice = (cost / slices).toFixed(2)
+    const costPerSlice = (cost / total).toFixed(2)
 
     return (
       <div id="cost-result" className="text-center">
@@ -20,3 +26,14 @@ export default class CostResult extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  cost: state.cost,
+  people: state.people,
+  slices: state.slices,
+  bogof: state.bogof
+})
+
+const component = connect(mapStateToProps)(CostResult)
+
+export default component

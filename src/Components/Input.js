@@ -1,8 +1,10 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
+import { updatePeople, updateSlices, toogleBogof } from '../actions'
 
-export default class Input extends React.Component {
+class Input extends React.Component {
   render() {
     return (
       <div className="panel-body">
@@ -12,7 +14,7 @@ export default class Input extends React.Component {
               <input
                 id="number-of-people"
                 type="number"
-                onChange={e => this.props.handlePeopleChange(e.target.value)}
+                onChange={e => this.props.onPeopleChange(e.target.value)}
                 placeholder="Number of People"
                 className="form-control"
               />
@@ -23,7 +25,7 @@ export default class Input extends React.Component {
               <input
                 id="number-of-slices"
                 type="number"
-                onChange={e => this.props.handleSlicesChange(e.target.value)}
+                onChange={e => this.props.onSlicesChange(e.target.value)}
                 placeholder="Number of Slices per Person"
                 className="form-control"
               />
@@ -36,7 +38,7 @@ export default class Input extends React.Component {
                   id="bogof"
                   type="checkbox"
                   checked={this.props.bogof}
-                  onChange={e => this.props.handleBogofChange(e.target.value)}
+                  onChange={e => this.props.onBogofChange(e.target.value)}
                 />
                 Buy One Get One Free?
               </label>
@@ -47,3 +49,23 @@ export default class Input extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  bogof: state.bogof
+})
+
+const mapDispatchToProps = dispatch => ({
+  onPeopleChange: people => {
+    dispatch(updatePeople(people))
+  },
+  onSlicesChange: slices => {
+    dispatch(updateSlices(slices))
+  },
+  onBogofChange: value => {
+    dispatch(toogleBogof(value))
+  }
+})
+
+const component = connect(mapStateToProps, mapDispatchToProps)(Input)
+
+export default component

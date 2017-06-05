@@ -1,8 +1,10 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
+import { updateCost } from '../actions'
 
-export default class CostInput extends React.Component {
+class CostInput extends React.Component {
   render() {
     return (
       <div className="panel-body">
@@ -12,7 +14,9 @@ export default class CostInput extends React.Component {
               <input
                 id="cost"
                 type="number"
-                onChange={e => this.props.handleCostChange(e.target.value)}
+                onChange={e => {
+                  this.props.onCostChange(e.target.value)
+                }}
                 placeholder="Total cost"
                 className="form-control"
               />
@@ -23,3 +27,13 @@ export default class CostInput extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  onCostChange: cost => {
+    dispatch(updateCost(cost))
+  }
+})
+
+const component = connect(null, mapDispatchToProps)(CostInput)
+
+export default component

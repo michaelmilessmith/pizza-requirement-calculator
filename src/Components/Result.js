@@ -1,13 +1,15 @@
 // @flow
 
 import React from 'react'
+import { connect } from 'react-redux'
+import pizzaCalculator from '../pizzaCalculator'
 
 type calculateSolutionArgs = {
   slicesNeeded: number,
   bogof: boolean
 }
 
-export default class Result extends React.Component {
+class Result extends React.Component {
   _calculateSolution(pizzas: Object, total: number) {
     const result = []
     if (pizzas.large) {
@@ -22,8 +24,12 @@ export default class Result extends React.Component {
     return { solution, slicesAvailible: total }
   }
   render() {
-    const { people, slices, pizzas, total } = this.props
+    const { people, slices } = this.props
     const slicesNeeded = people * slices
+    const { pizzas, total } = pizzaCalculator({
+      slicesNeeded,
+      bogof: this.props.bogof
+    })
     const { solution, slicesAvailible } = this._calculateSolution(pizzas, total)
     return (
       <div id="result" className="text-center">
@@ -41,3 +47,13 @@ export default class Result extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  people: state.people,
+  slices: state.slices,
+  bogof: state.bogof
+})
+
+const component = connect(mapStateToProps)(Result)
+
+export default component

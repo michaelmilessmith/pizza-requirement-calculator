@@ -4,9 +4,9 @@ import App from './Components/App'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
 import reducer from './reducer'
-import { updatePeople, updateSlices, toogleBogof, updateCost } from './actions'
 
 const store = createStore(
   reducer,
@@ -15,13 +15,9 @@ const store = createStore(
 
 const render = () => {
   ReactDOM.render(
-    <App
-      {...store.getState()}
-      onPeopleChange={value => store.dispatch(updatePeople(value))}
-      onSlicesChange={value => store.dispatch(updateSlices(value))}
-      onBogofChange={value => store.dispatch(toogleBogof())}
-      onCostChange={value => store.dispatch(updateCost(value))}
-    />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById('container')
   )
 }
