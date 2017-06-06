@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "build": "webpack",
     "precommit": "lint-staged && flow",
+    "prepush": "npm test",
     "flow": "flow",
     "jest": "jest"
   },

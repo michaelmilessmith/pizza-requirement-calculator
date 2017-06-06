@@ -9,6 +9,6 @@ describe('<App/>', () => {
     expect(wrapper.find('Connect(Result)').length).toBe(1)
     expect(wrapper.find('Connect(Input)').length).toBe(1)
     expect(wrapper.find('Connect(CostInput)').length).toBe(1)
-    expect(wrapper.find('Connect(CostResult)q').length).toBe(1)
+    expect(wrapper.find('Connect(CostResult)').length).toBe(1)
   })
 })
