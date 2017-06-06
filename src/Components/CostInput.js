@@ -4,29 +4,23 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateCost } from '../actions'
 
-class CostInput extends React.Component {
-  render() {
-    return (
-      <div className="panel-body">
-        <form>
-          <div className="form-group row">
-            <div className="col-sm-12">
-              <input
-                id="cost"
-                type="number"
-                onChange={e => {
-                  this.props.onCostChange(e.target.value)
-                }}
-                placeholder="Total cost"
-                className="form-control"
-              />
-            </div>
-          </div>
-        </form>
+const CostInput = ({ onCostChange }: { onCostChange: number => void }) => (
+  <div className="panel-body">
+    <form>
+      <div className="form-group row">
+        <div className="col-sm-12">
+          <input
+            id="cost"
+            type="number"
+            onChange={e => onCostChange(e.target.value)}
+            placeholder="Total cost"
+            className="form-control"
+          />
+        </div>
       </div>
-    )
-  }
-}
+    </form>
+  </div>
+)
 
 const mapDispatchToProps = dispatch => ({
   onCostChange: cost => {
@@ -34,6 +28,5 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-const component = connect(null, mapDispatchToProps)(CostInput)
-
-export default component
+export default connect(null, mapDispatchToProps)(CostInput)
+export { CostInput }

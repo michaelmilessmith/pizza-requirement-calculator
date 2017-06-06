@@ -54,6 +54,5 @@ const mapStateToProps = state => ({
   bogof: state.bogof
 })
 
-const component = connect(mapStateToProps)(Result)
-
-export default component
+export default connect(mapStateToProps)(Result)
+export { Result }

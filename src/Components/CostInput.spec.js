@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import CostInput from './CostInput'
+import { CostInput } from './CostInput'
 
 describe('<CostInput/>', () => {
   it('has an input for total price', () => {
@@ -10,7 +10,7 @@ describe('<CostInput/>', () => {
   })
   it('raises an event when the cost value changes', () => {
     const onChange = jest.fn()
-    const wrapper = shallow(<CostInput handleCostChange={onChange} />)
+    const wrapper = shallow(<CostInput onCostChange={onChange} />)
     wrapper.find('#cost').first().simulate('change', { target: { value: 7 } })
     expect(onChange).toHaveBeenCalledTimes(1)
     expect(onChange).toHaveBeenCalledWith(7)

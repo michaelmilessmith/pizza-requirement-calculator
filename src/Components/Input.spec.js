@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Input from './Input'
+import { Input } from './Input'
 
 describe('<Input/>', () => {
   it('has an input for number of people and number of slices', () => {
@@ -10,7 +10,7 @@ describe('<Input/>', () => {
   })
   it('raises an event when the number of people value changes', () => {
     const onChange = jest.fn()
-    const wrapper = shallow(<Input handlePeopleChange={onChange} />)
+    const wrapper = shallow(<Input onPeopleChange={onChange} />)
     wrapper
       .find('#number-of-people')
       .first()
@@ -19,7 +19,7 @@ describe('<Input/>', () => {
   })
   it('raises an event when the number of slices value changes', () => {
     const onChange = jest.fn()
-    const wrapper = shallow(<Input handleSlicesChange={onChange} />)
+    const wrapper = shallow(<Input onSlicesChange={onChange} />)
     wrapper
       .find('#number-of-slices')
       .first()
@@ -28,7 +28,7 @@ describe('<Input/>', () => {
   })
   it('raises an event when the bogof value changes', () => {
     const onChange = jest.fn()
-    const wrapper = shallow(<Input handleBogofChange={onChange} />)
+    const wrapper = shallow(<Input onBogofChange={onChange} />)
     wrapper
       .find('#bogof')
       .first()
